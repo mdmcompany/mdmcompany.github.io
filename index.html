@@ -5,13 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domain for Sale</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Content Security Policy (CSP) -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self';">
+
+<!-- Referrer Policy -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- XSS Protection -->
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+
+<!-- Prevent MIME Sniffing -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+
 </head>
-<body>
+body>
     <div class="container">
         <h1 class="title">Domain for Sale</h1>
         <p class="subtitle">This domain is for sale: <span class="price">$900 or best offer</span></p>
+        
         <div class="buttons">
-            <a href="mailto:daniel.daniel128@dontsp.am?subject=Domain%20Inquiry&body=I%20am%20interested%20in%20purchasing%20the%20domain." class="buy-now">Contact Me</a>
+            <a id="contact" class="buy-now">Contact Me</a>
         </div>
     
         <ul class="features">
@@ -19,5 +32,15 @@
             <li class="feature-item">Safe and secure shopping</li>
         </ul>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const user = "daniel.daniel128";
+            const domain = "dontsp.am";
+            const email = user + "@" + domain;
+            const mailto = `mailto:${email}?subject=Domain%20Inquiry&body=I%20am%20interested%20in%20purchasing%20the%20domain.`;
+            document.getElementById("contact").setAttribute("href", mailto);
+        });
+    </script>
 </body>
 </html>
